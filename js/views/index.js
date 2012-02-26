@@ -11,13 +11,6 @@
             //         oo.getRouter().load('/article-list');
             //     }
             // }));
-        },
-        animShow: function animShow (direction) {
-            if (oo.getViewport().getFocusedPanel()) {
-                HomePanel.Super.prototype.animShow.call(this, oo.view.Viewport.ANIM_LTR);
-            } else {
-                this.setDisplay('block', '');
-            }
         }
 
     });
