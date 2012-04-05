@@ -4,7 +4,7 @@
         indexAction : function indexAction(){
             var v = this.getViewport();
 
-            v.switchPanel('home', oo.view.Viewport.ANIM_LTR);
+            v.switchPanel('home');
         }
     });
 
