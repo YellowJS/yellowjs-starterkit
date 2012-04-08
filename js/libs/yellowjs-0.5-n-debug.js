@@ -1,6 +1,6 @@
 /*!
- * PlineJS v0.4 - mobile framework
- * http://plinejs.org
+ * YellowJS v0.5 - mobile framework
+ * http://yellowjs.org
  */
 (function() {
 
@@ -754,7 +754,13 @@ oo = pline = (function (window) {
         /**
          * create a controller from the class passed in parameter
          */
-        createController: function createController(actions, noRegister) {
+        createController: function createController(identifier, actions) {
+
+            if (1 === arguments.length) {
+                actions = identifier;
+                identifier = null;
+            }
+
             if(!actions && ( 'object' !== typeof actions)){
                 throw new Error('Wrong parameter');
             }
@@ -766,8 +772,8 @@ oo = pline = (function (window) {
 
             var c = oo.Class(oo.router.Controller, actions);
 
-            // if (!noRegister)
-            //     this.getRouter().addController(identifier, c);
+            if (identifier)
+                this.getRouter().addController(identifier, c);
 
             return c;
         },
@@ -3665,6 +3671,9 @@ var oo = (function (oo) {
             ON_SHOW: 'on_show',
             ON_HIDE: 'on_hide'
         },
+
+        _data: null,
+
         constructor: function constructor() {
 
             Panel.Super.call(this, {el: document.createElement('div')});
@@ -3672,12 +3681,14 @@ var oo = (function (oo) {
             var that = this;
             //window.addEventListener('orientationchange', that.refresh,false);
             
+            this._data = {}
+
             if ('init' in this)
                 this.init();
         },
         render: function render() {
             this.classList.addClass('oo-panel');
-            this.appendHtml(Panel.Super.prototype.render.call(this));
+            this.appendHtml(Panel.Super.prototype.render.call(this, this._data));
 
             return this;
         },
@@ -3737,6 +3748,9 @@ var oo = (function (oo) {
           var vp = oo.getViewport();
           vp.getWidth(null, true);
           vp.getHeight(null, true);
+        },
+        setData: function setData (data) {
+            this._data = data;
         }
     });
 

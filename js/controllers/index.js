@@ -2,9 +2,9 @@
     //create controller
     var IndexController = oo.createController({
         indexAction : function indexAction(){
-            var v = this.getViewport();
+            var v = this.getViewport(), VP = oo.view.Viewport;
 
-            v.switchPanel('home');
+            v.switchPanel('home', VP.ANIM_RTL);
         }
     });
 
