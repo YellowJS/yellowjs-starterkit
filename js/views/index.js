@@ -1,4 +1,4 @@
-oo.createPanel({
+oo.createPanelClass({
     id:'home',
     init: function init () { this.setTemplate(document.querySelector('#tpl-home').text); },
     onEnabled: function onEnabled () {
@@ -11,4 +11,4 @@ oo.createPanel({
         // }));
     }
 
-});
+}, {stage: 'main'});
