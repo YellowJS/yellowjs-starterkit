@@ -1,6 +1,6 @@
 oo.createPanelClass({
     id:'home',
-    init: function init () { this.setTemplate(document.querySelector('#tpl-home').text); },
+    init: function init () { this.setTemplate(oo.dom('#tpl-home').html()); },
     onEnabled: function onEnabled () {
         
         // this.addEl(oo.createElement('button', {
