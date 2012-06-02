@@ -57,3 +57,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /**** END ****/
 
+#home {
+  text-align: center;
+}
+
+#home img {
+  width:90%;
+  margin-top: 10%;
+}
+
